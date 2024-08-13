@@ -20,7 +20,9 @@ export function Player() {
             <Video />
           </div>
           <aside className="w-80 absolute top-0 bottom-0 right-0 border-l border-zinc-800 divide-y-2 divide-zinc-900 bg-zinc-900 overflow-y-scroll scrollbar scrollbar-thin scrollbar-track-zinc-950 scrollbar-thumb-zinc-900">
-            <Module />
+            <Module title="Teste" moduleIndex={0} amountOfLessons={3} />
+            <Module title="Teste" moduleIndex={1} amountOfLessons={3} />
+            <Module title="Teste" moduleIndex={2} amountOfLessons={3} />
           </aside>
         </main>
       </div>
