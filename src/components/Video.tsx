@@ -6,6 +6,8 @@ export function Video() {
   const dispatch = useDispatch();
   const { currentLesson } = useCurrentLesson();
 
+  if (!currentLesson) return;
+
   const handlePlayNext = () => {
     dispatch(next());
   };

@@ -7,12 +7,12 @@ import { useCurrentLesson } from "../store/slices/player";
 import { useEffect } from "react";
 
 export function Player() {
-  const modules = useAppSelector((state) => state.player.course.modules);
+  const modules = useAppSelector((state) => state.player.course?.modules);
 
   const { currentLesson } = useCurrentLesson();
 
   useEffect(() => {
-    document.title = `${currentLesson.title}`;
+    document.title = `${currentLesson?.title}`;
   }, [currentLesson]);
 
   return (
@@ -31,16 +31,17 @@ export function Player() {
             <Video />
           </div>
           <aside className="w-80 absolute top-0 bottom-0 right-0 border-l border-zinc-800 divide-y-2 divide-zinc-900 bg-zinc-900 overflow-y-scroll scrollbar scrollbar-thin scrollbar-track-zinc-950 scrollbar-thumb-zinc-900">
-            {modules.map((item, index) => {
-              return (
-                <Module
-                  key={item.id}
-                  title={item.title}
-                  moduleIndex={index}
-                  amountOfLessons={item.lessons.length}
-                />
-              );
-            })}
+            {modules &&
+              modules.map((item, index) => {
+                return (
+                  <Module
+                    key={item.id}
+                    title={item.title}
+                    moduleIndex={index}
+                    amountOfLessons={item.lessons.length}
+                  />
+                );
+              })}
           </aside>
         </main>
       </div>
